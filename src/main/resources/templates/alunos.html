@@ -7,7 +7,7 @@
 	</head>
 	<body class="container mt-5">
 		<h2 class="container text-center">Lista de Alunos</h2>
-		<table class="table table-bordered table-striped mt-5">
+		<table class="table table-bordered table-striped mt-3">
 			<thead>
 				<tr>
 					<th>ID</th><th>Nome</th><th>Endereço</th><th>Curso</th><th>Atualizar</th><th>Apagar</th>
@@ -19,10 +19,13 @@
 				<td></td>
 				<td th:text="${aluno.curso} != null ? ${aluno.curso.nome} : 'Não Selecionado'"></td>
 				<td>
-					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning">Editar</a>
+					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning sm-5">Editar</a>
 				</td>
 				<td>
-					
+					<form th:action="@{alunos/excluir/{id} (id=${aluno.id})}" method="post">
+						<input type="hidden" name="_method" value="delete"/>
+						<button type="submit" class="btn btn-danger sm-5" onclick="return confirm('Deseja apagar os dados desse aluno?')">Excluir</button>
+					</form>
 				</td>
 			</tbody>
 		</table>
