@@ -22,7 +22,9 @@ public class EnderecoController {
 	
 	@GetMapping("/cadastrar/endereco")
 	public String formulario(Model model) {
-		model.addAttribute("enderecoDTO", new EnderecoDTO());
+		EnderecoDTO dto = new EnderecoDTO();
+		dto.setNumero(0);
+		model.addAttribute("enderecoDTO", dto);
 		return "form_endereco";
 	}
 	
