@@ -10,15 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.sistema.faculdade.dto.AlunoDTO;
 import com.sistema.faculdade.model.Aluno;
 import com.sistema.faculdade.service.AlunoService;
+import com.sistema.faculdade.service.CursoService;
+import com.sistema.faculdade.service.EnderecoService;
 
 import jakarta.validation.Valid;
 
 @Controller
 public class AlunoController {
-	public AlunoService service;
+	public AlunoService alunoService;
+	public CursoService cursoService;
+	public EnderecoService enderecoService;
 	
-	public AlunoController(AlunoService service) {
-		this.service = service;
+	public AlunoController(AlunoService alunoService, CursoService cursoService, EnderecoService enderecoService) {
+		this.alunoService = alunoService;
+		this.cursoService = cursoService;
+		this.enderecoService = enderecoService;
+		
 	}
 	
 	@GetMapping("/cadastrar/aluno")
@@ -32,7 +39,11 @@ public class AlunoController {
 		if(result.hasErrors()) {
 			return "form_aluno";
 		}
-		service.salvarAluno(alunoDTO);
+		alunoService.salvarAluno(alunoDTO);
 		return "redirect://cadastrar/aluno";
 	}
+	//Listar Alunos = "/alunos"
+	//Editar Aluno = "/alunos/editar/{id}"
+	//Atualizar Aluno = "alunos/atualizar/{id}"
+	//Deletar Aluno = "alunos/deletar/{id}"
 }
