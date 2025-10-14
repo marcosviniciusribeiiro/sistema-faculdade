@@ -18,8 +18,8 @@ public class EnderecoDTO {
 	@NotBlank(message = "A rua é obrigatória!")
 	private String rua;
 	
-	@Positive(message = "O número da casa é obrigatório e deve ser maior que zero!")
-	private Long numero;
+	@Positive(message = "O número da casa deve ser maior que zero!")
+	private int numero;
 	
 	private String complemento;
 
@@ -63,11 +63,11 @@ public class EnderecoDTO {
 		this.rua = rua;
 	}
 
-	public Long getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Long numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
