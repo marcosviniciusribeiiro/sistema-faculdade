@@ -27,7 +27,7 @@ public class Endereco {
 	private String rua;
 	
 	@Column(nullable = false)
-	private int numero;
+	private Long numero;
 	
 	private String complemento;
 	
@@ -49,10 +49,10 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	public int getNumero() {
+	public Long getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(Long numero) {
 		this.numero = numero;
 	}
 	public String getCep() {
