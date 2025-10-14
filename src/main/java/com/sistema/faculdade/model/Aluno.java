@@ -1,5 +1,6 @@
 package com.sistema.faculdade.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,8 @@ public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int matricula;
-
+	
+	@Column(nullable = false)
 	private String nome;
 	
 	@OneToOne
