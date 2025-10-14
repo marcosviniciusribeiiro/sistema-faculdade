@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Endereco {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Column(nullable = false)
 	private String cep;
@@ -31,10 +31,10 @@ public class Endereco {
 	
 	private String complemento;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getRua() {
