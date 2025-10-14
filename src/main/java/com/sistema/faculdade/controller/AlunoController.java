@@ -3,9 +3,12 @@ package com.sistema.faculdade.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.AlunoDTO;
 import com.sistema.faculdade.model.Aluno;
@@ -31,6 +34,7 @@ public class AlunoController {
 	@GetMapping("/cadastrar/aluno")
 	public String formulario(Model model) {
 		model.addAttribute("alunoDTO", new Aluno());
+		model.addAttribute("cursos", cursoService.listarCursos());
 		return "form_aluno";
 	}
 	
@@ -40,10 +44,33 @@ public class AlunoController {
 			return "form_aluno";
 		}
 		alunoService.salvarAluno(alunoDTO);
-		return "redirect://cadastrar/aluno";
+		return "redirect:/cadastrar/aluno";
 	}
-	//Listar Alunos = "/alunos"
-	//Editar Aluno = "/alunos/editar/{id}"
-	//Atualizar Aluno = "alunos/atualizar/{id}"
-	//Deletar Aluno = "alunos/deletar/{id}"
+	
+	@GetMapping("/alunos")
+	public String listarAlunos(Model model) {
+		model.addAttribute("alunos", alunoService.listarAlunos());
+		return "alunos";
+	}
+
+	@GetMapping("/alunos/editar/{id}")
+	public String editarAluno(@PathVariable Long id, Model model){
+		AlunoDTO dto = alunoService.buscarPorId(id);
+		model.addAttribute("alunoDTO", dto);
+		model.addAttribute("cursos", cursoService.listarCursos());
+		return "form_aluno";
+	}	
+	
+	@PutMapping("/alunos/atualizar/{id}")
+	public String atualizarAluno(@ModelAttribute AlunoDTO alunoDTO, @PathVariable Long id) {
+		alunoDTO.setId(id);
+		alunoService.salvarAluno(alunoDTO);
+		return "redirect:/alunos";
+	}
+
+	@DeleteMapping("alunos/excluir/{id}")
+	public String excluirAluno(@PathVariable Long id) {
+		alunoService.excluirAluno(id);
+		return "redirect:/alunos";
+	}
 }
