@@ -1,6 +1,7 @@
 package com.sistema.faculdade.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 public class EnderecoDTO {
 	private Long id;
@@ -17,8 +18,8 @@ public class EnderecoDTO {
 	@NotBlank(message = "A rua é obrigatória!")
 	private String rua;
 	
-	@NotBlank(message = "O número da casa é obrigatório!")
-	private int numero;
+	@Positive(message = "O número da casa é obrigatório e deve ser maior que zero!")
+	private Long numero;
 	
 	private String complemento;
 
@@ -62,11 +63,11 @@ public class EnderecoDTO {
 		this.rua = rua;
 	}
 
-	public int getNumero() {
+	public Long getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Long numero) {
 		this.numero = numero;
 	}
 
