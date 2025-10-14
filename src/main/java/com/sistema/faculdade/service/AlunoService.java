@@ -26,7 +26,7 @@ public class AlunoService {
 	}
 	
 	public AlunoDTO buscarPorId(Long id) {
-		Aluno a = alunoRepository.findById(null)
+		Aluno a = alunoRepository.findById(id)
 								 .orElseThrow(() -> new IllegalArgumentException("Id inválido: " + id));
 		return AlunoMapper.toDTO(a);
 	}
