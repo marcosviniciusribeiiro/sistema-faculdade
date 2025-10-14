@@ -7,18 +7,18 @@ import com.sistema.faculdade.model.Aluno;
 import jakarta.validation.constraints.NotBlank;
 
 public class CursoDTO {
-	private int id;
+	private Long id;
 	
 	@NotBlank(message = "O nome do curso é obrigatório!")
 	private String nome;
 	
 	private List<Aluno> alunos;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
