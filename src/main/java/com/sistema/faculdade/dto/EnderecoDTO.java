@@ -3,7 +3,7 @@ package com.sistema.faculdade.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class EnderecoDTO {
-	private int id;
+	private Long id;
 	
 	@NotBlank(message = "O CEP é obrigatório!")
 	private String cep;
@@ -22,11 +22,11 @@ public class EnderecoDTO {
 	
 	private String complemento;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
