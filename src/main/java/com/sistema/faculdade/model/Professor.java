@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 public class Professor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int matricula;
+	private Long matricula;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -24,11 +24,11 @@ public class Professor {
 	@ManyToMany(mappedBy = "professores")
 	private List<Disciplina> disciplinas = new ArrayList<>();
 	
-	public int getMatricula() {
+	public Long getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(Long matricula) {
 		this.matricula = matricula;
 	}
 
