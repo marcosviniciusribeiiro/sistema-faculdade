@@ -31,7 +31,7 @@ public class AlunoService {
 		return AlunoMapper.toDTO(a);
 	}
 	
-	public void deletarAluno(Long id) {
+	public void excluirAluno(Long id) {
 		alunoRepository.deleteById(id);
 	}
 }
