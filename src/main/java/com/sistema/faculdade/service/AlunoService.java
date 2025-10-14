@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.faculdade.dto.AlunoDTO;
 import com.sistema.faculdade.mapper.AlunoMapper;
+import com.sistema.faculdade.model.Aluno;
 import com.sistema.faculdade.repository.AlunoRepository;
 
 @Service
@@ -22,5 +23,15 @@ public class AlunoService {
 	
 	public List<AlunoDTO> listarAlunos(){
 		return alunoRepository.findAll().stream().map(AlunoMapper::toDTO).toList();
+	}
+	
+	public AlunoDTO buscarPorId(Long id) {
+		Aluno a = alunoRepository.findById(null)
+								 .orElseThrow(() -> new IllegalArgumentException("Id inválido: " + id));
+		return AlunoMapper.toDTO(a);
+	}
+	
+	public void deletarAluno(Long id) {
+		alunoRepository.deleteById(id);
 	}
 }
