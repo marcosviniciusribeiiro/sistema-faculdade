@@ -7,12 +7,27 @@
 	</head>
 	<body class="container mt-5">
 		<h2 class="container text-center">Lista de Alunos</h2>
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped mt-5">
 			<thead>
 				<tr>
-					<th>ID</th><th>Nome</th><th>Endereço</th><th>Curso</th>
+					<th>ID</th><th>Nome</th><th>Endereço</th><th>Curso</th><th>Atualizar</th><th></th>
 				</tr>
 			</thead>
+			<tbody th:each="aluno : ${alunos}">
+				<td th:text="${aluno.id}"></td>
+				<td th:text="${aluno.nome}"></td>
+				<td></td>
+				<td th:text="${aluno.curso.nome}"></td>
+				<td>
+					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning">Editar</a>
+				</td>
+				<td>
+					
+				</td>
+			</tbody>
 		</table>
+		<div class="container text-center">
+			<a th:href="@{/cadastrar/aluno}" class="btn btn-primary">Cadastrar Novo Aluno</a>
+		</div>
 	</body>
 </html>
