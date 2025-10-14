@@ -15,7 +15,7 @@
 				
 				<label for="nome" class="form-label">Nome do Aluno:</label>
 				<input type="text" th:field="*{nome}" class="form-control"/>
-				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div>
 			</div>
 			<div class="form-group">
 				<label for="curso" class="form-label">Curso:</label>
