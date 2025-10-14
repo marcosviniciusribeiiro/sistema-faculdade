@@ -22,6 +22,21 @@
 				<div class="text-danger" th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}">Erro</div>
 			</div>
 			<div class="mb-3">
+				<label for="estado" class="form-label">Estado:</label>
+				<input type="text" th:field="*{estado}" class="form-control"/>
+				<div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">Erro</div>
+			</div>
+			<div class="mb-3">
+				<label for="rua" class="form-label">Rua:</label>
+				<input type="text" th:field="*{rua}" class="form-control"/>
+				<div class="text-danger" th:if="${#fields.hasErrors('rua')}" th:errors="*{rua}">Erro</div>
+			</div>
+			<div class="mb-3">
+				<label for="numero" class="form-label">Numero da Casa:</label>
+				<input type="number" th:field="*{numero}" min="1" required class="form-control"/>
+				<div class="text-danger" th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}">Erro</div>
+			</div>
+			<div class="mb-3">
 				<label for="complemento" class="form-label">Complemento (Opcional):</label>
 				<textarea th:field="*{complemento}" class="form-control"></textarea>
 				<div class="text-danger" th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}">Erro</div>
