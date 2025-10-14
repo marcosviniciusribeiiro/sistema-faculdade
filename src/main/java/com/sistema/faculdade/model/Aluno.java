@@ -15,7 +15,8 @@ import jakarta.persistence.Table;
 public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long matricula;
+	@Column(name = "matricula")
+	private Long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -27,28 +28,35 @@ public class Aluno {
 	@ManyToOne
 	@JoinColumn(name = "curso_id")
 	private Curso curso;
-	
-	public Long getMatricula() {
-		return matricula;
+
+	public Long getId() {
+		return id;
 	}
-	public void setMatricula(Long matricula) {
-		this.matricula = matricula;
+
+	public void setId(Long id) {
+		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
 	public Curso getCurso() {
 		return curso;
 	}
+
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
