@@ -6,7 +6,7 @@ import com.sistema.faculdade.model.Endereco;
 import jakarta.validation.constraints.NotBlank;
 
 public class AlunoDTO {
-	private Long matricula;
+	private Long id;
 	
 	@NotBlank(message = "O nome do aluno é obrigatório.")
 	private String nome;
@@ -15,12 +15,12 @@ public class AlunoDTO {
 	
 	private Curso curso;
 
-	public Long getMatricula() {
-		return matricula;
+	public Long getId() {
+		return id;
 	}
 
-	public void setMatricula(Long matricula) {
-		this.matricula = matricula;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
