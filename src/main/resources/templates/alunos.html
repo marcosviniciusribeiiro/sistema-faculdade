@@ -10,14 +10,14 @@
 		<table class="table table-bordered table-striped mt-5">
 			<thead>
 				<tr>
-					<th>ID</th><th>Nome</th><th>Endereço</th><th>Curso</th><th>Atualizar</th><th></th>
+					<th>ID</th><th>Nome</th><th>Endereço</th><th>Curso</th><th>Atualizar</th><th>Apagar</th>
 				</tr>
 			</thead>
 			<tbody th:each="aluno : ${alunos}">
 				<td th:text="${aluno.id}"></td>
 				<td th:text="${aluno.nome}"></td>
 				<td></td>
-				<td th:text="${aluno.curso.nome}"></td>
+				<td th:text="${aluno.curso} != null ? ${aluno.curso.nome} : 'Não Selecionado'"></td>
 				<td>
 					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning">Editar</a>
 				</td>
