@@ -19,7 +19,7 @@ public class Professor {
 	
 	private String nome;
 	
-	@ManyToMany(mappedBy = "professor")
+	@ManyToMany(mappedBy = "professores")
 	private List<Disciplina> disciplinas = new ArrayList<>();
 	
 	public int getMatricula() {
