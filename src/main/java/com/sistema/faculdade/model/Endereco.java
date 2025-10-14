@@ -13,12 +13,12 @@ public class Endereco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String rua;
-	private String complemento;
-	private int numero;
 	private String cep;
 	private String cidade;
 	private String estado;
+	private String rua;
+	private int numero;
+	private String complemento;
 	
 	public int getId() {
 		return id;
