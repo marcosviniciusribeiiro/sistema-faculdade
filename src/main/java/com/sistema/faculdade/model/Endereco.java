@@ -1,5 +1,6 @@
 package com.sistema.faculdade.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,11 +14,21 @@ public class Endereco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(nullable = false)
 	private String cep;
+	
+	@Column(nullable = false)
 	private String cidade;
+	
+	@Column(nullable = false)
 	private String estado;
+
+	@Column(nullable = false)
 	private String rua;
+	
+	@Column(nullable = false)
 	private int numero;
+	
 	private String complemento;
 	
 	public int getId() {
