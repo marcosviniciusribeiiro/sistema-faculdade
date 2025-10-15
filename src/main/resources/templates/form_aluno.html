@@ -29,7 +29,7 @@
 			<div class="form-group mb-3">
 				<label for="endereco" class="form-label">Endereço:</label>
 				<select th:field="*{endereco}" class="form-select">
-					<option value="">Selecione sua rua/endereço</option>
+					<option value="">Selecione sua rua</option>
 					<th:block th:each="endereco : ${enderecos}">
 						<option th:value="${endereco.id}" th:text="${endereco.rua}"></option>
 					</th:block>
