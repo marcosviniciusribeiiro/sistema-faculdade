@@ -17,7 +17,7 @@
 			<td th:text="${curso.id}"></td>
 			<td th:text="${curso.nome}"></td>
 			<td>
-				<a class="btn btn-warning sm-5">Editar</a>
+				<a th:href="@{/cursos/editar/{id} (id=${curso.id})}" class="btn btn-warning sm-5">Editar</a>
 			</td>
 			<td>
 				<form method="post">
@@ -28,7 +28,7 @@
 		</tbody>
 	</table>
 	<div class="container text-center">
-		<a th:href="@{/cadastrar/endereco}" class="btn btn-primary">Cadastrar Novo Endereço</a>
+		<a th:href="@{/cadastrar/curso}" class="btn btn-primary">Cadastrar Novo Curso</a>
 	</div>
 	</body>
 </html>
