@@ -31,7 +31,7 @@ public class ProfessorService {
 		return ProfessorMapper.toDTO(p);
 	}
 	
-	public void deletarProfessor(Long id) {
+	public void excluirProfessor(Long id) {
 		professorRepository.deleteById(id);
 	}
 }
