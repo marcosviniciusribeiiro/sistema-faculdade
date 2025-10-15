@@ -31,7 +31,7 @@ public class DisciplinaService {
 		return DisciplinaMapper.toDTO(d);
 	}
 	
-	public void deletarDisciplina(Long id) {
+	public void excluirDisciplina(Long id) {
 		disciplinaRepository.deleteById(id);
 	}
 }
