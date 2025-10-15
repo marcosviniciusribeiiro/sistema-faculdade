@@ -3,9 +3,12 @@ package com.sistema.faculdade.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.EnderecoDTO;
 import com.sistema.faculdade.service.EnderecoService;
@@ -41,5 +44,25 @@ public class EnderecoController {
 	public String listarEnderecos(Model model) {
 		model.addAttribute("enderecos", service.listarEnderecos());
 		return "enderecos";
+	}
+	
+	@GetMapping("/enderecos/editar/{id}")
+	public String editarEndereco(@PathVariable Long id, Model model) {
+		EnderecoDTO dto = service.buscarPorId(id);
+		model.addAttribute("enderecoDTO", dto);
+		return "form_endereco";
+	}
+	
+	@PutMapping("/enderecos/atualizar/{id}")
+	public String atualizarEndereco(@ModelAttribute EnderecoDTO enderecoDTO, @PathVariable Long id) {
+		enderecoDTO.setId(id);
+		service.salvarEndereco(enderecoDTO);
+		return "redirect:/enderecos";	
+	}
+	
+	@DeleteMapping("/enderecos/excluir/{id}")
+	public String excluirEndereco(@PathVariable Long id) {
+		service.excluirEndereco(id);
+		return "redirect:/enderecos";
 	}
 }
