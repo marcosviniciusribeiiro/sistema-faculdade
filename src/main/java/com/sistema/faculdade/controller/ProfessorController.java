@@ -34,4 +34,13 @@ public class ProfessorController {
 		service.salvarProfessor(professorDTO);
 		return "redirect:/cadastrar/professor";
 	}
+	//ListarProfessores ("/professores")
+	@GetMapping("/professores")
+	public String listarProfessores(Model model) {
+		model.addAttribute("professores", service.listarProfessores());
+		return "professores";
+	}
+	//EditarProfessor ("/professores/editar/{id}")
+	//AtualizarProfessor ("/professores/atualizar/{id}")
+	//ExcluirProfessor ("/professores/excluir/{id}")
 }
