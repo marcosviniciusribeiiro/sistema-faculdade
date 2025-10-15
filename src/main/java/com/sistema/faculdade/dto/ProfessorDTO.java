@@ -7,19 +7,19 @@ import com.sistema.faculdade.model.Disciplina;
 import jakarta.validation.constraints.NotBlank;
 
 public class ProfessorDTO {
-	private Long matricula;
+	private Long id;
 	
 	@NotBlank(message = "O nome do professor é obrigatório!")
 	private String nome;
 	
 	private List<Disciplina> disciplinas;
 
-	public Long getMatricula() {
-		return matricula;
+	public Long getId() {
+		return id;
 	}
 
-	public void setMatricula(Long matricula) {
-		this.matricula = matricula;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
