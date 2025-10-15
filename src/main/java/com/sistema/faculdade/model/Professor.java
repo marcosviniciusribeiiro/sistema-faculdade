@@ -29,7 +29,7 @@ public class Professor {
 		return id;
 	}
 
-	public void setMatricula(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
