@@ -51,6 +51,13 @@ public class CursoController {
 		return "form_curso";
 	}
 	
+	@PutMapping("/cursos/atualizar/{id}")
+	public String atualizarCurso(@ModelAttribute CursoDTO cursoDTO, @PathVariable Long id) {
+		cursoDTO.setId(id);
+		service.salvarCurso(cursoDTO);
+		return "redirect:/cursos";
+	}
+	
 	@DeleteMapping("/cursos/excluir/{id}")
 	public String excluirCurso(@PathVariable Long id) {
 		service.excluirCurso(id);
