@@ -36,4 +36,10 @@ public class EnderecoController {
 		service.salvarEndereco(enderecoDTO);
 		return "redirect:/cadastrar/endereco";
 	}
+	
+	@GetMapping("/enderecos")
+	public String listarEnderecos(Model model) {
+		model.addAttribute("enderecos", service.listarEnderecos());
+		return "enderecos";
+	}
 }
