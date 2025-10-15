@@ -52,7 +52,6 @@ public class DisciplinaController {
 	
 	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
 	
-	//ExcluirDisciplina ("/disciplinas/excluir/{id}")
 	@DeleteMapping("/disciplinas/excluir/{id}")
 	public String excluirDisciplina(@PathVariable Long id) {
 		service.excluirDisciplina(id);
