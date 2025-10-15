@@ -31,7 +31,7 @@ public class EnderecoService {
 		return EnderecoMapper.toDTO(e);
 	}
 	
-	public void deletarEndereco(Long id) {
+	public void excluirEndereco(Long id) {
 		enderecoRepository.deleteById(id);
 	}
 }
