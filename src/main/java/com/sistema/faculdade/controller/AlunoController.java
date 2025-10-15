@@ -35,6 +35,7 @@ public class AlunoController {
 	public String formulario(Model model) {
 		model.addAttribute("alunoDTO", new Aluno());
 		model.addAttribute("cursos", cursoService.listarCursos());
+		model.addAttribute("enderecos", enderecoService.listarEnderecos());
 		return "form_aluno";
 	}
 	
@@ -58,6 +59,7 @@ public class AlunoController {
 		AlunoDTO dto = alunoService.buscarPorId(id);
 		model.addAttribute("alunoDTO", dto);
 		model.addAttribute("cursos", cursoService.listarCursos());
+		model.addAttribute("enderecos", enderecoService.listarEnderecos());
 		return "form_aluno";
 	}	
 	
