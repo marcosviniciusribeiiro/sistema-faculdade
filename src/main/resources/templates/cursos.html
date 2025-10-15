@@ -20,8 +20,8 @@
 				<a th:href="@{/cursos/editar/{id} (id=${curso.id})}" class="btn btn-warning sm-5">Editar</a>
 			</td>
 			<td>
-				<form method="post">
-					<!--<input type="" name="" value=""/>-->
+				<form th:action="@{/cursos/excluir/{id} (id=${curso.id})}" method="post">
+					<input type="hidden" name="_method" value="delete"/>
 					<button type="submit" class="btn btn-danger sm-5" onclick="return confirm('Deseja apagar este curso?')">Excluir</button>
 				</form>
 			</td>
