@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,7 +20,7 @@ public class Aluno {
 	@Column(nullable = false)
 	private String nome;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 	
