@@ -52,7 +52,6 @@ public class ProfessorController {
 	
 	//AtualizarProfessor ("/professores/atualizar/{id}")
 	
-	//ExcluirProfessor ("/professores/excluir/{id}")
 	@DeleteMapping("/professores/excluir/{id}")
 	public String excluirProfessor(@PathVariable Long id) {
 		service.excluirProfessor(id);
