@@ -31,7 +31,7 @@ public class CursoService {
 		return CursoMapper.toDTO(c);
 	}
 	
-	public void deletarCurso(Long id) {
+	public void excluirCurso(Long id) {
 		cursoRepository.deleteById(id);
 	}
 }
