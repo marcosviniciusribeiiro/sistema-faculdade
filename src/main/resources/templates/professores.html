@@ -17,7 +17,7 @@
 			<td th:text="${professor.id}"></td>
 			<td th:text="${professor.nome}"></td>
 			<td>
-				<a class="btn btn-warning sm-5">Editar</a>
+				<a th:href="@{/professores/editar/{id} (id=${professor.id})}" class="btn btn-warning sm-5">Editar</a>
 			</td>
 			<td>
 				<form>
