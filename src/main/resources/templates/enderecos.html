@@ -10,7 +10,7 @@
 	<table class="table table-bordered table-striped mt-3 container text-center">
 		<thead>
 			<tr>
-				<th>ID</th><th>CEP</th><th>Cidade</th><th>Estado</th><th>Rua</th><th>Número da Casa</th>
+				<th>ID</th><th>CEP</th><th>Cidade</th><th>Estado</th><th>Rua</th><th>Número da Casa</th><th>Atualizar</th><th>Apagar</th>
 			</tr>
 		</thead>
 		<tbody th:each="endereco : ${enderecos}">
@@ -20,6 +20,12 @@
 			<td th:text="${endereco.estado}"></td>
 			<td th:text="${endereco.rua}"></td>
 			<td th:text="${endereco.numero}"></td>
+			<td>
+				
+			</td>
+			<td>
+				
+			</td>
 		</tbody>
 	</table>
 	<div class="container text-center">
