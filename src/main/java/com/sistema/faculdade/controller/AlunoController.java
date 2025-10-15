@@ -31,6 +31,11 @@ public class AlunoController {
 		
 	}
 	
+	@GetMapping("/sistema/faculdade")
+	public String index() {
+		return "index";
+	}
+	
 	@GetMapping("/cadastrar/aluno")
 	public String formulario(Model model) {
 		model.addAttribute("alunoDTO", new Aluno());
