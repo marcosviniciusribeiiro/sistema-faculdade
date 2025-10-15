@@ -34,4 +34,15 @@ public class DisciplinaController {
 		service.salvarDisciplina(disciplinaDTO);
 		return "redirect:/cadastrar/disciplina";
 	}
+	
+	//ListarDisciplinas ("/disciplinas")
+	@GetMapping("/disciplinas")
+	public String listarDisciplinas(Model model) {
+		model.addAttribute("disciplinas", service.listarDisciplinas());
+		return "disciplinas";
+	}
+	
+	//EditarDisciplina ("/disciplinas/editar/{id}")
+	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
+	//ExcluirDisciplina ("/disciplinas/excluir/{id}")
 }
