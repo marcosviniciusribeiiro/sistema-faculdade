@@ -3,8 +3,10 @@ package com.sistema.faculdade.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sistema.faculdade.dto.DisciplinaDTO;
@@ -35,14 +37,25 @@ public class DisciplinaController {
 		return "redirect:/cadastrar/disciplina";
 	}
 	
-	//ListarDisciplinas ("/disciplinas")
 	@GetMapping("/disciplinas")
 	public String listarDisciplinas(Model model) {
 		model.addAttribute("disciplinas", service.listarDisciplinas());
 		return "disciplinas";
 	}
 	
-	//EditarDisciplina ("/disciplinas/editar/{id}")
+	@GetMapping("/disciplinas/editar/{id}")
+	public String editarDisciplina(Model model, @PathVariable Long id) {
+		DisciplinaDTO dto = service.buscarPorId(id);
+		model.addAttribute("disciplinaDTO", dto);
+		return "form_disciplina";
+	}
+	
 	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
+	
 	//ExcluirDisciplina ("/disciplinas/excluir/{id}")
+	@DeleteMapping("/disciplinas/excluir/{id}")
+	public String excluirDisciplina(@PathVariable Long id) {
+		service.excluirDisciplina(id);
+		return "redirect:/disciplinas";
+	}
 }
