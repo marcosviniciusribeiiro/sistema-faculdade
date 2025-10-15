@@ -36,11 +36,9 @@
 				</select>
 			</div>
 			<br>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-6"><button type="submit" class="btn btn-success" th:text="${alunoDTO.id} != null ? 'Salvar Alterações' : 'Cadastrar'"></button></div>
-					<div class="col-6"><a th:href="@{/alunos}" class="btn btn-secondary">Lista de Alunos</a></div>
-				</div>
+			<div class="container text-center row">
+				<div class="col-6"><button type="submit" class="btn btn-success" th:text="${alunoDTO.id} != null ? 'Salvar Alterações' : 'Cadastrar'"></button></div>
+				<div class="col-6"><a th:href="@{/alunos}" class="btn btn-secondary">Lista de Alunos</a></div>
 			</div>
 		</form>
 	</body>
