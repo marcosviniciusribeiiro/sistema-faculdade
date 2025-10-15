@@ -17,7 +17,7 @@
 				<input type="text" th:field="*{nome}" class="form-control"/>
 				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-3">
 				<label for="curso" class="form-label">Curso:</label>
 				<select th:field="*{curso}" class="form-select">
 					<option value="">Selecione o curso</option>
@@ -26,7 +26,7 @@
 					</th:block>
 				</select>
 			</div>
-			<div class="form-group">
+			<div class="form-group mb-3">
 				<label for="endereco" class="form-label">Endereço:</label>
 				<select th:field="*{endereco}" class="form-select">
 					<option value="">Selecione sua rua/endereço</option>
