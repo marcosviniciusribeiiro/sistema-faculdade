@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.DisciplinaDTO;
 import com.sistema.faculdade.service.DisciplinaService;
@@ -51,6 +52,12 @@ public class DisciplinaController {
 	}
 	
 	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
+	@PutMapping("/disciplinas/atualizar/{id}")
+	public String atualizarDisciplina(@ModelAttribute DisciplinaDTO disciplinaDTO, @PathVariable Long id) {
+		disciplinaDTO.setId(id);
+		service.salvarDisciplina(disciplinaDTO);
+		return "redirect:/disciplinas";
+	}
 	
 	@DeleteMapping("/disciplinas/excluir/{id}")
 	public String excluirDisciplina(@PathVariable Long id) {
