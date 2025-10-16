@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.ProfessorDTO;
 import com.sistema.faculdade.service.ProfessorService;
@@ -51,6 +52,12 @@ public class ProfessorController {
 	}
 	
 	//AtualizarProfessor ("/professores/atualizar/{id}")
+	@PutMapping("/professores/atualizar/{id}")
+	public String atualizarProfessor(@ModelAttribute ProfessorDTO professorDTO, @PathVariable Long id) {
+		professorDTO.setId(id);
+		service.salvarProfessor(professorDTO);
+		return "redirect:/professores";
+	}
 	
 	@DeleteMapping("/professores/excluir/{id}")
 	public String excluirProfessor(@PathVariable Long id) {
