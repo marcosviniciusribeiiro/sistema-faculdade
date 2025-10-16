@@ -28,13 +28,13 @@ public class EnderecoController {
 		EnderecoDTO dto = new EnderecoDTO();
 		dto.setNumero(0);
 		model.addAttribute("enderecoDTO", dto);
-		return "form_endereco";
+		return "endereco_form";
 	}
 	
 	@PostMapping("/cadastrar/endereco")
 	public String salvarEndereco(@ModelAttribute("enderecoDTO") @Valid EnderecoDTO enderecoDTO, BindingResult result) {
 		if(result.hasErrors()) {
-			return "form_endereco";
+			return "endereco_form";
 		}
 		service.salvarEndereco(enderecoDTO);
 		return "redirect:/cadastrar/endereco";
@@ -50,7 +50,7 @@ public class EnderecoController {
 	public String editarEndereco(@PathVariable Long id, Model model) {
 		EnderecoDTO dto = service.buscarPorId(id);
 		model.addAttribute("enderecoDTO", dto);
-		return "form_endereco";
+		return "endereco_form";
 	}
 	
 	@PutMapping("/enderecos/atualizar/{id}")
