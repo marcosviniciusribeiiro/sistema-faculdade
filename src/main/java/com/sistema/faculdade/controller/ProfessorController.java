@@ -25,13 +25,13 @@ public class ProfessorController {
 	@GetMapping("/cadastrar/professor")
 	public String formulario(Model model) {
 		model.addAttribute("professorDTO", new ProfessorDTO());
-		return "form_professor";
+		return "professor_form";
 	}
 	
 	@PostMapping("/cadastrar/professor")
 	public String salvarProfessor(@ModelAttribute("professorDTO") @Valid ProfessorDTO professorDTO, BindingResult result) {
 		if(result.hasErrors()) {
-			return "form_professor";
+			return "professor_form";
 		}
 		service.salvarProfessor(professorDTO);
 		return "redirect:/cadastrar/professor";
@@ -47,7 +47,7 @@ public class ProfessorController {
 	public String editarProfessor(Model model, @PathVariable Long id) {
 		ProfessorDTO dto = service.buscarPorId(id);
 		model.addAttribute("professorDTO", dto);
-		return "form_professor";
+		return "professor_form";
 	}
 	
 	//AtualizarProfessor ("/professores/atualizar/{id}")
