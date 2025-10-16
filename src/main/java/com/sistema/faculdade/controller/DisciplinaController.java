@@ -25,13 +25,13 @@ public class DisciplinaController {
 	@GetMapping("/cadastrar/disciplina")
 	public String formulario(Model model) {
 		model.addAttribute("disciplinaDTO", new DisciplinaDTO());
-		return "form_disciplina";
+		return "disciplina_form";
 	}
 	
 	@PostMapping("/cadastrar/disciplina")
 	public String salvarDisciplina(@ModelAttribute("disciplinaDTO") @Valid DisciplinaDTO disciplinaDTO, BindingResult result) {
 		if(result.hasErrors()){
-			return "form_disciplina";
+			return "disciplina_form";
 		}
 		service.salvarDisciplina(disciplinaDTO);
 		return "redirect:/cadastrar/disciplina";
@@ -47,7 +47,7 @@ public class DisciplinaController {
 	public String editarDisciplina(Model model, @PathVariable Long id) {
 		DisciplinaDTO dto = service.buscarPorId(id);
 		model.addAttribute("disciplinaDTO", dto);
-		return "form_disciplina";
+		return "disciplina_form";
 	}
 	
 	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
