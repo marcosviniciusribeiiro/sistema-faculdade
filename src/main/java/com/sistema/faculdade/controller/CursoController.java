@@ -26,13 +26,13 @@ public class CursoController {
 	@GetMapping("/cadastrar/curso")
 	public String formulario(Model model) {
 		model.addAttribute("cursoDTO", new CursoDTO());
-		return "form_curso";
+		return "curso_form";
 	}
 	
 	@PostMapping("/cadastrar/curso")
 	public String salvarCurso(@ModelAttribute("cursoDTO") @Valid CursoDTO cursoDTO, BindingResult result) {
 		if(result.hasErrors()) {
-			return "form_curso";
+			return "curso_form";
 		}
 		service.salvarCurso(cursoDTO);
 		return "redirect:/cadastrar/curso";
@@ -48,7 +48,7 @@ public class CursoController {
 	public String editarCurso(@PathVariable Long id, Model model) {
 		CursoDTO dto = service.buscarPorId(id);
 		model.addAttribute("cursoDTO", dto);
-		return "form_curso";
+		return "curso_form";
 	}
 	
 	@PutMapping("/cursos/atualizar/{id}")
