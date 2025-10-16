@@ -41,13 +41,13 @@ public class AlunoController {
 		model.addAttribute("alunoDTO", new Aluno());
 		model.addAttribute("cursos", cursoService.listarCursos());
 		model.addAttribute("enderecos", enderecoService.listarEnderecos());
-		return "form_aluno";
+		return "aluno_form";
 	}
 	
 	@PostMapping("/cadastrar/aluno")
 	public String salvarAluno(@ModelAttribute("alunoDTO") @Valid AlunoDTO alunoDTO, BindingResult result) {
 		if(result.hasErrors()) {
-			return "form_aluno";
+			return "aluno_form";
 		}
 		alunoService.salvarAluno(alunoDTO);
 		return "redirect:/cadastrar/aluno";
@@ -65,7 +65,7 @@ public class AlunoController {
 		model.addAttribute("alunoDTO", dto);
 		model.addAttribute("cursos", cursoService.listarCursos());
 		model.addAttribute("enderecos", enderecoService.listarEnderecos());
-		return "form_aluno";
+		return "aluno_form";
 	}	
 	
 	@PutMapping("/alunos/atualizar/{id}")
