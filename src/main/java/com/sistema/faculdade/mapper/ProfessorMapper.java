@@ -11,14 +11,14 @@ public class ProfessorMapper {
 		Professor professor = new Professor();
 		professor.setId(dto.getId());
 		professor.setNome(dto.getNome());
-		professor.setDisciplinas(disciplinas);
+		professor.setDisciplinas_professor(disciplinas);
 		return professor;
 	}
 	public static ProfessorDTO toDTO(Professor professor) {
 		ProfessorDTO dto = new ProfessorDTO();
 		dto.setId(professor.getId());
 		dto.setNome(professor.getNome());
-		dto.setDisciplinasIds(professor.getDisciplinas().stream().map(Disciplina::getId).toList());
+		dto.setDisciplinasIds(professor.getDisciplinas_professor().stream().map(Disciplina::getId).toList());
 		return dto;
 	}
 }
