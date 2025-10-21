@@ -21,10 +21,10 @@ public class Disciplina {
 	@Column(nullable = false)
 	private String nome;
 	
-	@ManyToMany(mappedBy = "disciplinas")
+	@ManyToMany(mappedBy = "disciplinas_professor")
 	private List<Professor> professores = new ArrayList<Professor>();
 	
-	@ManyToMany(mappedBy = "disciplinas")
+	@ManyToMany(mappedBy = "disciplinas_curso")
 	private List<Curso> cursos = new ArrayList<Curso>();
 
 	public Long getId() {
