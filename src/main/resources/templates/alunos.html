@@ -13,7 +13,8 @@
 					<th>ID</th><th>Nome</th><th>Curso</th><th>CEP</th><th>Rua</th><th>Número</th><th>Atualizar</th><th>Apagar</th>
 				</tr>
 			</thead>
-			<tbody th:each="aluno : ${alunos}">
+			<tbody>
+				<tr th:each="aluno : ${alunos}">
 				<td th:text="${aluno.id}"></td>
 				<td th:text="${aluno.nome}"></td>
 				<td th:text="${aluno.curso} != null ? ${aluno.curso.nome} : 'Não Cadastrado'"></td>
@@ -29,6 +30,7 @@
 						<button type="submit" class="btn btn-danger sm-5" onclick="return confirm('Deseja apagar os dados desse aluno?')">Excluir</button>
 					</form>
 				</td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="container text-center">
