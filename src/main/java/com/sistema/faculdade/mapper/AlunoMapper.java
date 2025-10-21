@@ -16,7 +16,12 @@ public class AlunoMapper {
 		dto.setId(aluno.getId());
 		dto.setNome(aluno.getNome());
 		dto.setEndereco(EnderecoMapper.toDTO(aluno.getEndereco()));
-		dto.setCursoId(aluno.getCurso().getId());
+		
+		if(aluno.getCurso() != null) {
+			dto.setCursoId(aluno.getCurso().getId());
+			dto.setCursoNome(aluno.getCurso().getNome());
+		}
+
 		return dto;
 	}
 }
