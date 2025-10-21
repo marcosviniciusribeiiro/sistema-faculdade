@@ -11,6 +11,8 @@ public class AlunoDTO {
 	private EnderecoDTO endereco = new EnderecoDTO();
 	
 	private Long cursoId;
+	
+	private String cursoNome;
 
 	public Long getId() {
 		return id;
@@ -42,5 +44,13 @@ public class AlunoDTO {
 
 	public void setCursoId(Long cursoId) {
 		this.cursoId = cursoId;
+	}
+
+	public String getCursoNome() {
+		return cursoNome;
+	}
+
+	public void setCursoNome(String cursoNome) {
+		this.cursoNome = cursoNome;
 	}
 }
