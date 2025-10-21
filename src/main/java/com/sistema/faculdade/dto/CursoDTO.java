@@ -13,6 +13,8 @@ public class CursoDTO {
 	private String nome;
 	
 	private List<Aluno> alunos;
+	
+	private List<Long> disciplinasId;
 
 	public Long getId() {
 		return id;
@@ -36,5 +38,13 @@ public class CursoDTO {
 
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
+	}
+
+	public List<Long> getDisciplinasId() {
+		return disciplinasId;
+	}
+
+	public void setDisciplinasId(List<Long> disciplinasId) {
+		this.disciplinasId = disciplinasId;
 	}
 }
