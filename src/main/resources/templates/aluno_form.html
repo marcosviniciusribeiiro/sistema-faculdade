@@ -24,22 +24,22 @@
 
 			<h3 class="container text-center" th:text="${alunoDTO.id} != null ? 'Atualizar Endereço' : 'Endereço'"></h3>
 
-			<label for="cep" class="label-form">CEP:</label>
+			<label for="cep" class="form-label">CEP:</label>
 			<input type="text" th:field="*{endereco.cep}" class="form-control" required/> </br>
 
-			<label for="estado" class="label-form">Estado:</label>
+			<label for="estado" class="form-label">Estado:</label>
 			<input type="text" th:field="*{endereco.estado}" class="form-control" required/> </br>
 
-			<label for="cidade" class="label-form">Cidade:</label>
+			<label for="cidade" class="form-label">Cidade:</label>
 			<input type="text" th:field="*{endereco.cidade}" class="form-control" required/> </br>
 
-			<label for="rua" class="label-form">Rua:</label>
+			<label for="rua" class="form-label">Rua:</label>
 			<input type="text" th:field="*{endereco.rua}" class="form-control" required/> </br>
 
-			<label for="numero" class="label-form">Número:</label>
+			<label for="numero" class="form-label">Número:</label>
 			<input type="number" th:field="*{endereco.numero}" class="form-control" required/> </br>
 
-			<label for="complemento" class="label-form">Complemento:</label>
+			<label for="complemento" class="form-label">Complemento:</label>
 			<input type="text" th:field="*{endereco.complemento}" class="form-control" required/> </br>
 
 								
