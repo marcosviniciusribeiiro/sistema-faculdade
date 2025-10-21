@@ -51,7 +51,6 @@ public class ProfessorController {
 		return "professor_form";
 	}
 	
-	//AtualizarProfessor ("/professores/atualizar/{id}")
 	@PutMapping("/professores/atualizar/{id}")
 	public String atualizarProfessor(@ModelAttribute ProfessorDTO professorDTO, @PathVariable Long id) {
 		professorDTO.setId(id);
