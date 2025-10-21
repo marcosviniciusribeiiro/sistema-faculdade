@@ -45,7 +45,6 @@ public class CursoController {
 	@GetMapping("/cursos")
 	public String listarCursos(Model model) {
 		model.addAttribute("cursos", cursoService.listarCursos());
-		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "cursos";
 	}
 	
@@ -53,6 +52,7 @@ public class CursoController {
 	public String editarCurso(@PathVariable Long id, Model model) {
 		CursoDTO dto = cursoService.buscarPorId(id);
 		model.addAttribute("cursoDTO", dto);
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "curso_form";
 	}
 	
