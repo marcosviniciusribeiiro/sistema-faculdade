@@ -7,18 +7,26 @@ import org.springframework.stereotype.Service;
 import com.sistema.faculdade.dto.AlunoDTO;
 import com.sistema.faculdade.mapper.AlunoMapper;
 import com.sistema.faculdade.model.Aluno;
+import com.sistema.faculdade.model.Curso;
 import com.sistema.faculdade.repository.AlunoRepository;
 
 @Service
 public class AlunoService {
 	public AlunoRepository alunoRepository;
+	public CursoService cursoService;
 	
-	public AlunoService(AlunoRepository alunoRepository) {
+	public AlunoService(AlunoRepository alunoRepository, CursoService cursoService) {
 		this.alunoRepository = alunoRepository;
+		this.cursoService = cursoService;
 	}
 	
 	public void salvarAluno(AlunoDTO dto) {
-		alunoRepository.save(AlunoMapper.toEntity(dto));
+		Aluno aluno = AlunoMapper.toEntity(dto);
+		
+		Curso curso = cursoService.buscarEntidadePorId(dto.getCursoId());
+		aluno.setCurso(curso);
+		
+		alunoRepository.save(aluno);
 	}
 	
 	public List<AlunoDTO> listarAlunos(){
