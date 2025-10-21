@@ -1,6 +1,5 @@
 package com.sistema.faculdade.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -8,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
@@ -23,14 +20,11 @@ public class Disciplina {
 	@Column(nullable = false)
 	private String nome;
 	
-	@ManyToMany
-	@JoinTable(name = "disciplina_professor",
-			joinColumns = @JoinColumn(name = "disciplina_id"),
-			inverseJoinColumns = @JoinColumn(name = "professor_id"))
-	private List<Professor> professores = new ArrayList<Professor>();
+	@ManyToMany(mappedBy = "disciplinas")
+	private List<Professor> professores;
 	
 	@ManyToMany(mappedBy = "disciplinas")
-	private List<Curso> cursos = new ArrayList<Curso>();
+	private List<Curso> cursos;
 	
 	public Long getId() {
 		return id;
