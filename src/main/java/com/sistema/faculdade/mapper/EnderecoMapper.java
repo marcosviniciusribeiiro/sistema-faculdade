@@ -5,25 +5,29 @@ import com.sistema.faculdade.model.Endereco;
 
 public class EnderecoMapper {
 	public static Endereco toEntity(EnderecoDTO dto) {
-		Endereco e = new Endereco();
-		e.setId(dto.getId());
-		e.setCep(dto.getCep());
-		e.setEstado(dto.getEstado());
-		e.setCidade(dto.getCidade());
-		e.setRua(dto.getRua());
-		e.setNumero(dto.getNumero());
-		e.setComplemento(dto.getComplemento());
-		return e;
+		Endereco endereco = new Endereco();
+		endereco.setId(dto.getId());
+		endereco.setCep(dto.getCep());
+		endereco.setEstado(dto.getEstado());
+		endereco.setCidade(dto.getCidade());
+		endereco.setRua(dto.getRua());
+		endereco.setNumero(dto.getNumero());
+		endereco.setComplemento(dto.getComplemento());
+		return endereco;
 	}
-	public static EnderecoDTO toDTO(Endereco e) {
+	public static EnderecoDTO toDTO(Endereco endereco) {
+		if(endereco == null) {
+			return null;
+		}
+		
 		EnderecoDTO dto = new EnderecoDTO();
-		dto.setId(e.getId());
-		dto.setCep(e.getCep());
-		dto.setEstado(e.getEstado());
-		dto.setCidade(e.getCidade());
-		dto.setRua(e.getRua());
-		dto.setNumero(e.getNumero());
-		dto.setComplemento(e.getComplemento());
+		dto.setId(endereco.getId());
+		dto.setCep(endereco.getCep());
+		dto.setEstado(endereco.getEstado());
+		dto.setCidade(endereco.getCidade());
+		dto.setRua(endereco.getRua());
+		dto.setNumero(endereco.getNumero());
+		dto.setComplemento(endereco.getComplemento());
 		return dto;
 	}
 }
