@@ -10,17 +10,19 @@
 		<table class="table table-bordered table-striped mt-3 container text-center">
 			<thead>
 				<tr>
-					<th>ID</th><th>Nome</th><th>Curso</th><th>CEP</th><th>Rua</th><th>Número</th><th>Atualizar</th><th>Apagar</th>
+					<th>ID</th><th>Nome</th><th>Curso</th><th>CEP</th><th>Estado</th><th>Cidade</th><th>Rua</th><th>Número</th><th>Atualizar</th><th>Apagar</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="aluno : ${alunos}">
 				<td th:text="${aluno.id}"></td>
 				<td th:text="${aluno.nome}"></td>
-				<td th:text="${aluno.cursoNome != null ? aluno.cursoNome : 'Não Cadastrado'}"></td>
-				<td th:text="${aluno.endereco != null ? aluno.endereco.cep : 'Não Registrado'}"></td>
-				<td th:text="${aluno.endereco != null ? aluno.endereco.rua : 'Não Registrado'}"></td>
-				<td th:text="${aluno.endereco != null ? aluno.endereco.numero : 'Não Registrado'}"></td>
+				<td th:text="${aluno.cursoNome}"></td>
+				<td th:text="${aluno.endereco.cep}"></td>
+				<td th:text="${aluno.endereco.estado}"></td>
+				<td th:text="${aluno.endereco.cidade}"></td>
+				<td th:text="${aluno.endereco.rua}"></td>
+				<td th:text="${aluno.endereco.numero}"></td>
 				<td>
 					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning sm-5">Editar</a>
 				</td>
