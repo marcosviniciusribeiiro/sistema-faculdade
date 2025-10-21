@@ -7,18 +7,25 @@ import org.springframework.stereotype.Service;
 import com.sistema.faculdade.dto.CursoDTO;
 import com.sistema.faculdade.mapper.CursoMapper;
 import com.sistema.faculdade.model.Curso;
+import com.sistema.faculdade.model.Disciplina;
 import com.sistema.faculdade.repository.CursoRepository;
+import com.sistema.faculdade.repository.DisciplinaRepository;
 
 @Service
 public class CursoService {
 	private final CursoRepository cursoRepository;
+	private final DisciplinaRepository disciplinaRepository;
 	
-	public CursoService(CursoRepository cursoRepository) {
+	public CursoService(CursoRepository cursoRepository, DisciplinaRepository disciplinaRepository) {
 		this.cursoRepository = cursoRepository;
+		this.disciplinaRepository = disciplinaRepository;
 	}
 	
 	public void salvarCurso(CursoDTO dto) {
-		cursoRepository.save(CursoMapper.toEntity(dto));
+		List<Disciplina> disciplinas = disciplinaRepository.findAllById(dto.getDisciplinasIds());
+		Curso curso = CursoMapper.toEntity(dto, disciplinas);
+		
+		cursoRepository.save(curso);
 	}
 	
 	public List<CursoDTO> listarCursos(){
