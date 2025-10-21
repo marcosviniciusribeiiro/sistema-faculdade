@@ -20,9 +20,9 @@ import jakarta.validation.Valid;
 
 @Controller
 public class AlunoController {
-	public AlunoService alunoService;
-	public CursoService cursoService;
-	public EnderecoService enderecoService;
+	private final AlunoService alunoService;
+	private final CursoService cursoService;
+	private final EnderecoService enderecoService;
 	
 	public AlunoController(AlunoService alunoService, CursoService cursoService, EnderecoService enderecoService) {
 		this.alunoService = alunoService;
