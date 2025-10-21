@@ -17,10 +17,10 @@ import jakarta.validation.Valid;
 
 @Controller
 public class ProfessorController {
-	public ProfessorService service;
+	private final ProfessorService professorService;
 	
-	public ProfessorController(ProfessorService service) {
-		this.service = service;
+	public ProfessorController(ProfessorService professorService) {
+		this.professorService = professorService;
 	}
 	
 	@GetMapping("/cadastrar/professor")
@@ -34,19 +34,19 @@ public class ProfessorController {
 		if(result.hasErrors()) {
 			return "professor_form";
 		}
-		service.salvarProfessor(professorDTO);
+		professorService.salvarProfessor(professorDTO);
 		return "redirect:/cadastrar/professor";
 	}
 
 	@GetMapping("/professores")
 	public String listarProfessores(Model model) {
-		model.addAttribute("professores", service.listarProfessores());
+		model.addAttribute("professores", professorService.listarProfessores());
 		return "professores";
 	}
 	
 	@GetMapping("/professores/editar/{id}")
 	public String editarProfessor(Model model, @PathVariable Long id) {
-		ProfessorDTO dto = service.buscarPorId(id);
+		ProfessorDTO dto = professorService.buscarPorId(id);
 		model.addAttribute("professorDTO", dto);
 		return "professor_form";
 	}
@@ -54,13 +54,13 @@ public class ProfessorController {
 	@PutMapping("/professores/atualizar/{id}")
 	public String atualizarProfessor(@ModelAttribute ProfessorDTO professorDTO, @PathVariable Long id) {
 		professorDTO.setId(id);
-		service.salvarProfessor(professorDTO);
+		professorService.salvarProfessor(professorDTO);
 		return "redirect:/professores";
 	}
 	
 	@DeleteMapping("/professores/excluir/{id}")
 	public String excluirProfessor(@PathVariable Long id) {
-		service.excluirProfessor(id);
+		professorService.excluirProfessor(id);
 		return "redirect:/professores";
 	}
 }
