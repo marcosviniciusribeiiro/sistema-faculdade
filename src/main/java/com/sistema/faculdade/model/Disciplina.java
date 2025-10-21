@@ -1,5 +1,6 @@
 package com.sistema.faculdade.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -21,10 +22,10 @@ public class Disciplina {
 	private String nome;
 	
 	@ManyToMany(mappedBy = "disciplinas")
-	private List<Professor> professores;
+	private List<Professor> professores = new ArrayList<Professor>();
 	
 	@ManyToMany(mappedBy = "disciplinas")
-	private List<Curso> cursos;
+	private List<Curso> cursos = new ArrayList<Curso>();
 	
 	public Long getId() {
 		return id;
