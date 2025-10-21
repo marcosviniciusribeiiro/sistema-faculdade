@@ -28,7 +28,7 @@ public class Professor {
 	@JoinTable(name = "professor_disciplina",
 			joinColumns = @JoinColumn(name = "professor_id"),
 			inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
-	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	private List<Disciplina> disciplinas_professor = new ArrayList<Disciplina>();
 	
 	public Long getId() {
 		return id;
@@ -46,11 +46,11 @@ public class Professor {
 		this.nome = nome;
 	}
 
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
+	public List<Disciplina> getDisciplinas_professor() {
+		return disciplinas_professor;
 	}
 
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDisciplinas_professor(List<Disciplina> disciplinas_professor) {
+		this.disciplinas_professor = disciplinas_professor;
 	}
 }
