@@ -33,25 +33,37 @@ public class Curso {
 	@JoinTable(name = "curso_disciplina",
 			joinColumns = @JoinColumn(name = "curso_id"),
 			inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
-	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-		
-	
+	private List<Disciplina> disciplinas_curso = new ArrayList<Disciplina>();
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
+
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
+	}
+
+	public List<Disciplina> getDisciplinas_curso() {
+		return disciplinas_curso;
+	}
+
+	public void setDisciplinas_curso(List<Disciplina> disciplinas_curso) {
+		this.disciplinas_curso = disciplinas_curso;
 	}
 }
