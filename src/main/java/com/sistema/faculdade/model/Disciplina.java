@@ -27,8 +27,11 @@ public class Disciplina {
 	@JoinTable(name = "disciplina_professor",
 			joinColumns = @JoinColumn(name = "disciplina_id"),
 			inverseJoinColumns = @JoinColumn(name = "professor_id"))
-	private List<Professor> professores = new ArrayList<>();
-
+	private List<Professor> professores = new ArrayList<Professor>();
+	
+	@ManyToMany(mappedBy = "disciplinas")
+	private List<Curso> cursos = new ArrayList<Curso>();
+	
 	public Long getId() {
 		return id;
 	}
