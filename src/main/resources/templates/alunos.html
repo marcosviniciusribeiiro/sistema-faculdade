@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html xmlsn:th="http://www.thymeleaf.org" lang="pt-br">
 	<head>
 		<meta charset="UTF-8"/>
@@ -17,10 +17,10 @@
 				<tr th:each="aluno : ${alunos}">
 				<td th:text="${aluno.id}"></td>
 				<td th:text="${aluno.nome}"></td>
-				<td th:text="${aluno.curso} != null ? ${aluno.curso.nome} : 'Não Cadastrado'"></td>
-				<td th:text="${aluno.endereco} != null ? ${aluno.endereco.cep} : 'Não Registrado'"></td>
-				<td th:text="${aluno.endereco} != null ? ${aluno.endereco.rua} : 'Não Registrado'"></td>
-				<td th:text="${aluno.endereco} != null ? ${aluno.endereco.numero} : 'Não Registrado'"></td>
+				<td th:text="${aluno.cursoNome != null ? aluno.cursoNome : 'Não Cadastrado'}"></td>
+				<td th:text="${aluno.endereco != null ? aluno.endereco.cep : 'Não Registrado'}"></td>
+				<td th:text="${aluno.endereco != null ? aluno.endereco.rua : 'Não Registrado'}"></td>
+				<td th:text="${aluno.endereco != null ? aluno.endereco.numero : 'Não Registrado'}"></td>
 				<td>
 					<a th:href="@{/alunos/editar/{id}(id=${aluno.id})}" class="btn btn-warning sm-5">Editar</a>
 				</td>
