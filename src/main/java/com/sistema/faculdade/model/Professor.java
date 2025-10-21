@@ -1,5 +1,6 @@
 package com.sistema.faculdade.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -27,7 +28,7 @@ public class Professor {
 	@JoinTable(name = "professor_disciplina",
 			joinColumns = @JoinColumn(name = "professor_id"),
 			inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
-	private List<Disciplina> disciplinas;
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public Long getId() {
 		return id;
