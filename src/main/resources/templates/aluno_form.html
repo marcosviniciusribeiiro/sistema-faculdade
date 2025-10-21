@@ -40,7 +40,7 @@
 			<input type="number" th:field="*{endereco.numero}" class="form-control" required/> </br>
 
 			<label for="complemento" class="form-label">Complemento:</label>
-			<input type="text" th:field="*{endereco.complemento}" class="form-control" required/> </br>
+			<input type="text" th:field="*{endereco.complemento}" class="form-control"/> </br>
 
 			<div class="container text-center row">
 				<div class="col-6"><button type="submit" class="btn btn-success" th:text="${alunoDTO.id} != null ? 'Salvar Alterações' : 'Cadastrar'"></button></div>
