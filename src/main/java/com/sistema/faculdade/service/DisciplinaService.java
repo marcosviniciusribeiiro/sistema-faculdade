@@ -11,7 +11,7 @@ import com.sistema.faculdade.repository.DisciplinaRepository;
 
 @Service
 public class DisciplinaService {
-	public DisciplinaRepository disciplinaRepository;
+	private final DisciplinaRepository disciplinaRepository;
 	
 	public DisciplinaService(DisciplinaRepository disciplinaRepository) {
 		this.disciplinaRepository = disciplinaRepository;
