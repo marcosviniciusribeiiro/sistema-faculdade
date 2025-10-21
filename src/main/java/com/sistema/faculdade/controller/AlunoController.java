@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.AlunoDTO;
-import com.sistema.faculdade.model.Aluno;
+import com.sistema.faculdade.dto.EnderecoDTO;
 import com.sistema.faculdade.service.AlunoService;
 import com.sistema.faculdade.service.CursoService;
 import com.sistema.faculdade.service.EnderecoService;
@@ -38,14 +38,20 @@ public class AlunoController {
 	
 	@GetMapping("/cadastrar/aluno")
 	public String formulario(Model model) {
-		model.addAttribute("alunoDTO", new Aluno());
+		AlunoDTO alunoDTO = new AlunoDTO();
+		alunoDTO.setEndereco(new EnderecoDTO());
+		
+		model.addAttribute("alunoDTO", new AlunoDTO());
 		model.addAttribute("cursos", cursoService.listarCursos());
-		model.addAttribute("enderecos", enderecoService.listarEnderecos());
 		return "aluno_form";
 	}
 	
 	@PostMapping("/cadastrar/aluno")
 	public String salvarAluno(@ModelAttribute("alunoDTO") @Valid AlunoDTO alunoDTO, BindingResult result) {
+	    if(alunoDTO.getCursoId() == null) {
+	        result.rejectValue("cursoId", null, "O curso é obrigatório.");
+	    }
+	    
 		if(result.hasErrors()) {
 			return "aluno_form";
 		}
