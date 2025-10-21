@@ -14,7 +14,7 @@
 				<input type="hidden" name="_method" value="put" th:if="${disciplinaDTO.id} != null"/>
 				
 				<label for="nome" class="form-label">Nome da Disciplina:</label>
-				<input type="text" th:field="*{nome}" class="form-control"/>
+				<input type="text" th:field="*{nome}" class="form-control" required/>
 				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div>
 			</div>
 			<br>
