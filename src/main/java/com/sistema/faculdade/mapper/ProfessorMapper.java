@@ -8,17 +8,17 @@ import com.sistema.faculdade.model.Professor;
 
 public class ProfessorMapper {
 	public static Professor toEntity(ProfessorDTO dto, List<Disciplina> disciplinas) {
-		Professor p = new Professor();
-		p.setId(dto.getId());
-		p.setNome(dto.getNome());
-		p.setDisciplinas(disciplinas);
-		return p;
+		Professor professor = new Professor();
+		professor.setId(dto.getId());
+		professor.setNome(dto.getNome());
+		professor.setDisciplinas(disciplinas);
+		return professor;
 	}
-	public static ProfessorDTO toDTO(Professor p) {
+	public static ProfessorDTO toDTO(Professor professor) {
 		ProfessorDTO dto = new ProfessorDTO();
-		dto.setId(p.getId());
-		dto.setNome(p.getNome());
-		dto.setDisciplinasIds(p.getDisciplinas().stream().map(Disciplina::getId).toList());
+		dto.setId(professor.getId());
+		dto.setNome(professor.getNome());
+		dto.setDisciplinasIds(professor.getDisciplinas().stream().map(Disciplina::getId).toList());
 		return dto;
 	}
 }
