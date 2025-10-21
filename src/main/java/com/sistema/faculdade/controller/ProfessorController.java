@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.ProfessorDTO;
+import com.sistema.faculdade.service.DisciplinaService;
 import com.sistema.faculdade.service.ProfessorService;
 
 import jakarta.validation.Valid;
@@ -18,14 +19,17 @@ import jakarta.validation.Valid;
 @Controller
 public class ProfessorController {
 	private final ProfessorService professorService;
+	private final DisciplinaService disciplinaService;
 	
-	public ProfessorController(ProfessorService professorService) {
+	public ProfessorController(ProfessorService professorService, DisciplinaService disciplinaService) {
 		this.professorService = professorService;
+		this.disciplinaService = disciplinaService;
 	}
 	
 	@GetMapping("/cadastrar/professor")
 	public String formulario(Model model) {
 		model.addAttribute("professorDTO", new ProfessorDTO());
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "professor_form";
 	}
 	
