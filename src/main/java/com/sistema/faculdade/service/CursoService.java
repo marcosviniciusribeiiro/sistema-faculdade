@@ -11,7 +11,7 @@ import com.sistema.faculdade.repository.CursoRepository;
 
 @Service
 public class CursoService {
-	public CursoRepository cursoRepository;
+	private final CursoRepository cursoRepository;
 	
 	public CursoService(CursoRepository cursoRepository) {
 		this.cursoRepository = cursoRepository;
