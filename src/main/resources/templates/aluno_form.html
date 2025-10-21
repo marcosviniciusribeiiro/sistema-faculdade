@@ -9,32 +9,40 @@
 		<h2  th:text="${alunoDTO.id} != null ? 'Atualizar Aluno' : 'Cadastro de Aluno'" class="container text-center"></h2>
 		
 		<form th:action="${alunoDTO.id} != null ? @{/alunos/atualizar/{id} (id=${alunoDTO.id})} : @{/cadastrar/aluno}" th:object="${alunoDTO}" method="post" class="mt-4">
-			<div class="mb-3">
-				<input type="hidden" th:field="*{id}"/>
-				<input type="hidden" name="_method" value="put" th:if="${alunoDTO.id} != null"/>
-				
-				<label for="nome" class="form-label">Nome do Aluno:</label>
-				<input type="text" th:field="*{nome}" class="form-control"/>
-				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div>
-			</div>
-			<div class="form-group mb-3">
-				<label for="curso" class="form-label">Curso:</label>
-				<select th:field="*{curso}" class="form-select">
-					<option value="">Selecione o curso</option>
-					<th:block th:each="curso : ${cursos}">
-						<option th:value="${curso.id}" th:text="${curso.nome}"></option>
-					</th:block>
-				</select>
-			</div>
-			<div class="form-group mb-3">
-				<label for="endereco" class="form-label">Endereço:</label>
-				<select th:field="*{endereco}" class="form-select">
-					<option value="">Selecione sua rua</option>
-					<th:block th:each="endereco : ${enderecos}">
-						<option th:value="${endereco.id}" th:text="${endereco.rua}"></option>
-					</th:block>
-				</select>
-			</div>
+			<input type="hidden" th:field="*{id}"/>
+			<input type="hidden" name="_method" value="put" th:if="${alunoDTO.id} != null"/>
+			
+			<label for="nome" class="form-label">Nome do Aluno:</label>
+			<input type="text" th:field="*{nome}" class="form-control" required/>
+			<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div> </br>
+
+			<label for="curso" class="form-label">Curso:</label>
+			<select th:field="*{cursoId}" class="form-select" required>
+				<option value="">Selecione o curso</option>					
+				<option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
+			</select> </br>
+
+			<h3>Endereço:</h3>
+
+			<label for="cep" class="label-form">CEP:</label>
+			<input type="text" th:field="*{endereco.cep}" class="form-control" required/> </br>
+
+			<label for="estado" class="label-form">Estado:</label>
+			<input type="text" th:field="*{endereco.estado}" class="form-control" required/> </br>
+
+			<label for="cidade" class="label-form">Cidade:</label>
+			<input type="text" th:field="*{endereco.cidade}" class="form-control" required/> </br>
+
+			<label for="rua" class="label-form">Rua:</label>
+			<input type="text" th:field="*{endereco.rua}" class="form-control" required/> </br>
+
+			<label for="numero" class="label-form">Número:</label>
+			<input type="number" th:field="*{endereco.numero}" class="form-control" required/> </br>
+
+			<label for="complemento" class="label-form">Complemento:</label>
+			<input type="text" th:field="*{endereco.complemento}" class="form-control" required/> </br>
+
+								
 			<br>
 			<div class="container text-center row">
 				<div class="col-6"><button type="submit" class="btn btn-success" th:text="${alunoDTO.id} != null ? 'Salvar Alterações' : 'Cadastrar'"></button></div>
