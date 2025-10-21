@@ -8,18 +8,25 @@ import com.sistema.faculdade.dto.ProfessorDTO;
 import com.sistema.faculdade.mapper.ProfessorMapper;
 import com.sistema.faculdade.model.Disciplina;
 import com.sistema.faculdade.model.Professor;
+import com.sistema.faculdade.repository.DisciplinaRepository;
 import com.sistema.faculdade.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {
 	private final ProfessorRepository professorRepository;
+	private final DisciplinaRepository disciplinaRepository;
 	
-	public ProfessorService(ProfessorRepository professorRepository) {
+	
+	public ProfessorService(ProfessorRepository professorRepository, DisciplinaRepository disciplinaRepository) {
 		this.professorRepository = professorRepository;
+		this.disciplinaRepository = disciplinaRepository;
 	}
 	
-	public void salvarProfessor(ProfessorDTO dto, List<Disciplina> disciplinas) {
-		professorRepository.save(ProfessorMapper.toEntity(dto));
+	public void salvarProfessor(ProfessorDTO dto) {
+		List<Disciplina> disciplinas = disciplinaRepository.findAllById(dto.getDisciplinasIds());
+		Professor professor = ProfessorMapper.toEntity(dto, disciplinas);
+		
+		professorRepository.save(professor);
 	}
 	
 	public List<ProfessorDTO> listarProfessores(){
