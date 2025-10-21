@@ -12,20 +12,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sistema.faculdade.dto.CursoDTO;
 import com.sistema.faculdade.service.CursoService;
+import com.sistema.faculdade.service.DisciplinaService;
 
 import jakarta.validation.Valid;
 
 @Controller
 public class CursoController {
 	private final CursoService cursoService;
+	private final DisciplinaService disciplinaService;
 	
-	public CursoController(CursoService cursoService) {
+	public CursoController(CursoService cursoService, DisciplinaService disciplinaService) {
 		this.cursoService = cursoService;
+		this.disciplinaService = disciplinaService;
 	}
 	
 	@GetMapping("/cadastrar/curso")
 	public String formulario(Model model) {
 		model.addAttribute("cursoDTO", new CursoDTO());
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "curso_form";
 	}
 	
@@ -41,6 +45,7 @@ public class CursoController {
 	@GetMapping("/cursos")
 	public String listarCursos(Model model) {
 		model.addAttribute("cursos", cursoService.listarCursos());
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "cursos";
 	}
 	
