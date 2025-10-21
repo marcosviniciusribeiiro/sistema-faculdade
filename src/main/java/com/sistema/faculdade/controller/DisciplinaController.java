@@ -51,7 +51,6 @@ public class DisciplinaController {
 		return "disciplina_form";
 	}
 	
-	//AtualizarDisciplina ("/disciplinas/atualizar/{id}")
 	@PutMapping("/disciplinas/atualizar/{id}")
 	public String atualizarDisciplina(@ModelAttribute DisciplinaDTO disciplinaDTO, @PathVariable Long id) {
 		disciplinaDTO.setId(id);
