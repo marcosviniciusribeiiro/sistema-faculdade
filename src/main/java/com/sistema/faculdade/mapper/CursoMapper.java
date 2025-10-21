@@ -21,7 +21,7 @@ public class CursoMapper {
 		dto.setId(curso.getId());
 		dto.setNome(curso.getNome());
 		dto.setAlunos(curso.getAlunos());
-		dto.setDisciplinasId(curso.getDisciplinas_curso().stream().map(Disciplina::getId).toList());
+		dto.setDisciplinasIds(curso.getDisciplinas_curso().stream().map(Disciplina::getId).toList());
 		return dto;
 	}
 }
