@@ -14,8 +14,17 @@
 				<input type="hidden" name="_method" value="put" th:if="${cursoDTO.id} != null"/>
 				
 				<label for="nome" class="form-label">Nome do Curso:</label>
-				<input type="text" th:field="*{nome}" class="form-control"/>
+				<input type="text" th:field="*{nome}" class="form-control" required/>
 				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Erro</div>
+			</div>
+			<br>
+			<div class="mb-3">
+				<label for="disciplinas" class="form-label">Disciplinas:</label>
+				<select th:field="*{disciplinasIds}" class="form-select" multiple required>
+					<option value="">Selecione as disciplinas do curso:</option>
+					<option th:each="disciplina : ${disciplinas}" th:value="${disciplina.id}" th:text="${disciplina.nome}"></option>
+				</select>
+				<small class="text-muted">Use Ctrl (ou Cmd) para selecionar múltiplas disciplinas.</small>
 			</div>
 			<br>
 			<div class="container text-center row">
