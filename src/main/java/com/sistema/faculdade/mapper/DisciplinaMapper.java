@@ -5,17 +5,17 @@ import com.sistema.faculdade.model.Disciplina;
 
 public class DisciplinaMapper {
 	public static Disciplina toEntity(DisciplinaDTO dto) {
-		Disciplina d = new Disciplina();
-		d.setId(dto.getId());
-		d.setNome(dto.getNome());
-		d.setProfessores(dto.getProfessores());
-		return d;
+		Disciplina disciplina = new Disciplina();
+		disciplina.setId(dto.getId());
+		disciplina.setNome(dto.getNome());
+		disciplina.setProfessores(dto.getProfessores());
+		return disciplina;
 	}
-	public static DisciplinaDTO toDTO(Disciplina d) {
+	public static DisciplinaDTO toDTO(Disciplina disciplina) {
 		DisciplinaDTO dto = new DisciplinaDTO();
-		dto.setId(d.getId());
-		dto.setNome(d.getNome());
-		dto.setProfessores(d.getProfessores());
+		dto.setId(disciplina.getId());
+		dto.setNome(disciplina.getNome());
+		dto.setProfessores(disciplina.getProfessores());
 		return dto;
 	}
 }
