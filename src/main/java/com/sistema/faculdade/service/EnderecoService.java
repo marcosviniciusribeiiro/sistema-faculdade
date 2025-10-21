@@ -11,7 +11,7 @@ import com.sistema.faculdade.repository.EnderecoRepository;
 
 @Service
 public class EnderecoService {
-	public EnderecoRepository enderecoRepository;
+	private final EnderecoRepository enderecoRepository;
 	
 	public EnderecoService(EnderecoRepository enderecoRepository) {
 		this.enderecoRepository = enderecoRepository;
