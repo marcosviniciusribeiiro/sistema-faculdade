@@ -26,7 +26,7 @@ public class Disciplina {
 	
 	@ManyToMany(mappedBy = "disciplinas")
 	private List<Curso> cursos = new ArrayList<Curso>();
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -49,5 +49,13 @@ public class Disciplina {
 
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
+	}
+
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 }
