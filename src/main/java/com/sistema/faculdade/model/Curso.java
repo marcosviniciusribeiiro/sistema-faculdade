@@ -10,6 +10,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -24,7 +27,14 @@ public class Curso {
 	private String nome;
 	
 	@OneToMany(mappedBy = "curso")
-	private List<Aluno> alunos = new ArrayList<>();
+	private List<Aluno> alunos = new ArrayList<Aluno>();
+	
+	@ManyToMany
+	@JoinTable(name = "disciplina_curso",
+			joinColumns = @JoinColumn(name = "disciplina_id"),
+			inverseJoinColumns = @JoinColumn(name = "curso_id"))
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+		
 	
 	public Long getId() {
 		return id;
