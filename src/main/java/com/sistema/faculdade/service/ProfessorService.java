@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.faculdade.dto.ProfessorDTO;
 import com.sistema.faculdade.mapper.ProfessorMapper;
+import com.sistema.faculdade.model.Disciplina;
 import com.sistema.faculdade.model.Professor;
 import com.sistema.faculdade.repository.ProfessorRepository;
 
@@ -17,8 +18,8 @@ public class ProfessorService {
 		this.professorRepository = professorRepository;
 	}
 	
-	public void salvarProfessor(ProfessorDTO dto) {
-		professorRepository.save(ProfessorMapper.toEntity(dto));
+	public void salvarProfessor(ProfessorDTO dto, List<Disciplina> d) {
+		professorRepository.save(ProfessorMapper.toEntity(dto, d));
 	}
 	
 	public List<ProfessorDTO> listarProfessores(){
