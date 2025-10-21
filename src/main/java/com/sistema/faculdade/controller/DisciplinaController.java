@@ -17,10 +17,10 @@ import jakarta.validation.Valid;
 
 @Controller
 public class DisciplinaController {
-	public DisciplinaService service;
+	private final DisciplinaService disciplinaService;
 	
-	public DisciplinaController(DisciplinaService service) {
-		this.service = service;
+	public DisciplinaController(DisciplinaService disciplinaService) {
+		this.disciplinaService = disciplinaService;
 	}
 	
 	@GetMapping("/cadastrar/disciplina")
@@ -34,19 +34,19 @@ public class DisciplinaController {
 		if(result.hasErrors()){
 			return "disciplina_form";
 		}
-		service.salvarDisciplina(disciplinaDTO);
+		disciplinaService.salvarDisciplina(disciplinaDTO);
 		return "redirect:/cadastrar/disciplina";
 	}
 	
 	@GetMapping("/disciplinas")
 	public String listarDisciplinas(Model model) {
-		model.addAttribute("disciplinas", service.listarDisciplinas());
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "disciplinas";
 	}
 	
 	@GetMapping("/disciplinas/editar/{id}")
 	public String editarDisciplina(Model model, @PathVariable Long id) {
-		DisciplinaDTO dto = service.buscarPorId(id);
+		DisciplinaDTO dto = disciplinaService.buscarPorId(id);
 		model.addAttribute("disciplinaDTO", dto);
 		return "disciplina_form";
 	}
@@ -54,13 +54,13 @@ public class DisciplinaController {
 	@PutMapping("/disciplinas/atualizar/{id}")
 	public String atualizarDisciplina(@ModelAttribute DisciplinaDTO disciplinaDTO, @PathVariable Long id) {
 		disciplinaDTO.setId(id);
-		service.salvarDisciplina(disciplinaDTO);
+		disciplinaService.salvarDisciplina(disciplinaDTO);
 		return "redirect:/disciplinas";
 	}
 	
 	@DeleteMapping("/disciplinas/excluir/{id}")
 	public String excluirDisciplina(@PathVariable Long id) {
-		service.excluirDisciplina(id);
+		disciplinaService.excluirDisciplina(id);
 		return "redirect:/disciplinas";
 	}
 }
