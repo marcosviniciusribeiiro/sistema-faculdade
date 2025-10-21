@@ -52,6 +52,7 @@ public class ProfessorController {
 	public String editarProfessor(Model model, @PathVariable Long id) {
 		ProfessorDTO dto = professorService.buscarPorId(id);
 		model.addAttribute("professorDTO", dto);
+		model.addAttribute("disciplinas", disciplinaService.listarDisciplinas());
 		return "professor_form";
 	}
 	
