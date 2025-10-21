@@ -17,10 +17,10 @@ import jakarta.validation.Valid;
 
 @Controller
 public class CursoController {
-	public CursoService service;
+	private final CursoService cursoService;
 	
-	public CursoController(CursoService service) {
-		this.service = service;
+	public CursoController(CursoService cursoService) {
+		this.cursoService = cursoService;
 	}
 	
 	@GetMapping("/cadastrar/curso")
@@ -34,19 +34,19 @@ public class CursoController {
 		if(result.hasErrors()) {
 			return "curso_form";
 		}
-		service.salvarCurso(cursoDTO);
+		cursoService.salvarCurso(cursoDTO);
 		return "redirect:/cadastrar/curso";
 	}
 	
 	@GetMapping("/cursos")
 	public String listarCursos(Model model) {
-		model.addAttribute("cursos", service.listarCursos());
+		model.addAttribute("cursos", cursoService.listarCursos());
 		return "cursos";
 	}
 	
 	@GetMapping("/cursos/editar/{id}")
 	public String editarCurso(@PathVariable Long id, Model model) {
-		CursoDTO dto = service.buscarPorId(id);
+		CursoDTO dto = cursoService.buscarPorId(id);
 		model.addAttribute("cursoDTO", dto);
 		return "curso_form";
 	}
@@ -54,13 +54,13 @@ public class CursoController {
 	@PutMapping("/cursos/atualizar/{id}")
 	public String atualizarCurso(@ModelAttribute CursoDTO cursoDTO, @PathVariable Long id) {
 		cursoDTO.setId(id);
-		service.salvarCurso(cursoDTO);
+		cursoService.salvarCurso(cursoDTO);
 		return "redirect:/cursos";
 	}
 	
 	@DeleteMapping("/cursos/excluir/{id}")
 	public String excluirCurso(@PathVariable Long id) {
-		service.excluirCurso(id);
+		cursoService.excluirCurso(id);
 		return "redirect:/cursos";
 	}
 }
