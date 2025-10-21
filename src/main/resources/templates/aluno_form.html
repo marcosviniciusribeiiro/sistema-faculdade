@@ -42,8 +42,6 @@
 			<label for="complemento" class="form-label">Complemento:</label>
 			<input type="text" th:field="*{endereco.complemento}" class="form-control" required/> </br>
 
-								
-			<br>
 			<div class="container text-center row">
 				<div class="col-6"><button type="submit" class="btn btn-success" th:text="${alunoDTO.id} != null ? 'Salvar Alterações' : 'Cadastrar'"></button></div>
 				<div class="col-6"><a th:href="@{/alunos}" class="btn btn-secondary">Lista de Alunos</a></div>
