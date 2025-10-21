@@ -1,8 +1,5 @@
 package com.sistema.faculdade.dto;
 
-import com.sistema.faculdade.model.Curso;
-import com.sistema.faculdade.model.Endereco;
-
 import jakarta.validation.constraints.NotBlank;
 
 public class AlunoDTO {
@@ -11,9 +8,9 @@ public class AlunoDTO {
 	@NotBlank(message = "O nome do aluno é obrigatório.")
 	private String nome;
 	
-	private Endereco endereco;
+	private EnderecoDTO endereco = new EnderecoDTO();
 	
-	private Curso curso;
+	private Long cursoId;
 
 	public Long getId() {
 		return id;
@@ -31,19 +28,19 @@ public class AlunoDTO {
 		this.nome = nome;
 	}
 
-	public Endereco getEndereco() {
+	public EnderecoDTO getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(EnderecoDTO endereco) {
 		this.endereco = endereco;
 	}
 
-	public Curso getCurso() {
-		return curso;
+	public Long getCursoId() {
+		return cursoId;
 	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+	public void setCursoId(Long cursoId) {
+		this.cursoId = cursoId;
 	}
 }
