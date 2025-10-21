@@ -23,7 +23,7 @@ public class Professor {
 	private String nome;
 	
 	@ManyToMany(mappedBy = "professores")
-	private List<Disciplina> disciplinas = new ArrayList<>();
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public Long getId() {
 		return id;
