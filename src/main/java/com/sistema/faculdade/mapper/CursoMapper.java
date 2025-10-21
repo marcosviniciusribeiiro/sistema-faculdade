@@ -5,18 +5,18 @@ import com.sistema.faculdade.model.Curso;
 
 public class CursoMapper {
 	public static Curso toEntity(CursoDTO dto) {
-		Curso c = new Curso();
-		c.setId(dto.getId());
-		c.setNome(dto.getNome());
-		c.setAlunos(dto.getAlunos());
-		return c;
+		Curso curso = new Curso();
+		curso.setId(dto.getId());
+		curso.setNome(dto.getNome());
+		curso.setAlunos(dto.getAlunos());
+		return curso;
 	}
 	
-	public static CursoDTO toDTO(Curso c) {
+	public static CursoDTO toDTO(Curso curso) {
 		CursoDTO dto = new CursoDTO();
-		dto.setId(c.getId());
-		dto.setNome(c.getNome());
-		dto.setAlunos(c.getAlunos());
+		dto.setId(curso.getId());
+		dto.setNome(curso.getNome());
+		dto.setAlunos(curso.getAlunos());
 		return dto;
 	}
 }
