@@ -20,7 +20,7 @@
 			<br>
 			<div class="mb-3">
 				<label for="disciplinas" class="form-label">Disciplinas:</label>
-				<select th:field="*{disciplinasIds}" multiple class="form-select" required>
+				<select th:field="*{disciplinasIds}" class="form-select" multiple required>
 					<option value="">Selecione as disciplinas do professor</option>
 					<option th:each="disciplina : ${disciplinas}" th:value="${disciplina.id}" th:text="${disciplina.nome}"></option>
 				</select>
