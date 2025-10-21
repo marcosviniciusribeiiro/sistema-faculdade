@@ -31,6 +31,11 @@ public class CursoService {
 		return CursoMapper.toDTO(c);
 	}
 	
+	public Curso buscarEntidadePorId(Long id) {
+	    return cursoRepository.findById(id)
+	            .orElseThrow(() -> new IllegalArgumentException("Curso não encontrado: " + id));
+	}
+	
 	public void excluirCurso(Long id) {
 		cursoRepository.deleteById(id);
 	}
