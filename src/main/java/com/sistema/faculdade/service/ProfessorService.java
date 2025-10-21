@@ -12,14 +12,14 @@ import com.sistema.faculdade.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {
-	public ProfessorRepository professorRepository;
+	private final ProfessorRepository professorRepository;
 	
 	public ProfessorService(ProfessorRepository professorRepository) {
 		this.professorRepository = professorRepository;
 	}
 	
 	public void salvarProfessor(ProfessorDTO dto, List<Disciplina> disciplinas) {
-		professorRepository.save(ProfessorMapper.toEntity(dto, disciplinas));
+		professorRepository.save(ProfessorMapper.toEntity(dto));
 	}
 	
 	public List<ProfessorDTO> listarProfessores(){
