@@ -22,7 +22,7 @@
 				<option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
 			</select> </br>
 
-			<h3>Endereço:</h3>
+			<h3 class="container text-center">Endereço:</h3>
 
 			<label for="cep" class="label-form">CEP:</label>
 			<input type="text" th:field="*{endereco.cep}" class="form-control" required/> </br>
