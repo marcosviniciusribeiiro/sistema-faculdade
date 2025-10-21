@@ -18,8 +18,8 @@ public class ProfessorService {
 		this.professorRepository = professorRepository;
 	}
 	
-	public void salvarProfessor(ProfessorDTO dto, List<Disciplina> d) {
-		professorRepository.save(ProfessorMapper.toEntity(dto, d));
+	public void salvarProfessor(ProfessorDTO dto, List<Disciplina> disciplinas) {
+		professorRepository.save(ProfessorMapper.toEntity(dto, disciplinas));
 	}
 	
 	public List<ProfessorDTO> listarProfessores(){
