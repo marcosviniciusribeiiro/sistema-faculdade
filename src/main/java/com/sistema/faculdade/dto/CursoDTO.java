@@ -14,7 +14,7 @@ public class CursoDTO {
 	
 	private List<Aluno> alunos;
 	
-	private List<Long> disciplinasId;
+	private List<Long> disciplinasIds;
 
 	public Long getId() {
 		return id;
@@ -40,11 +40,11 @@ public class CursoDTO {
 		this.alunos = alunos;
 	}
 
-	public List<Long> getDisciplinasId() {
-		return disciplinasId;
+	public List<Long> getDisciplinasIds() {
+		return disciplinasIds;
 	}
 
-	public void setDisciplinasId(List<Long> disciplinasId) {
-		this.disciplinasId = disciplinasId;
+	public void setDisciplinasIds(List<Long> disciplinasIds) {
+		this.disciplinasIds = disciplinasIds;
 	}
 }
