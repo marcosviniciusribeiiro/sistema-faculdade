@@ -2,6 +2,8 @@ package com.sistema.faculdade.dto;
 
 import java.util.List;
 
+import com.sistema.faculdade.model.Aluno;
+
 import jakarta.validation.constraints.NotBlank;
 
 public class CursoDTO {
@@ -10,7 +12,7 @@ public class CursoDTO {
 	@NotBlank(message = "O nome do curso é obrigatório!")
 	private String nome;
 	
-	private List<Long> alunosIds;
+	private List<Aluno> alunos;
 	
 	private List<Long> disciplinasIds;
 
@@ -30,12 +32,12 @@ public class CursoDTO {
 		this.nome = nome;
 	}
 
-	public List<Long> getAlunosIds() {
-		return alunosIds;
+	public List<Aluno> getAlunos() {
+		return alunos;
 	}
 
-	public void setAlunosIds(List<Long> alunosIds) {
-		this.alunosIds = alunosIds;
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	public List<Long> getDisciplinasIds() {
