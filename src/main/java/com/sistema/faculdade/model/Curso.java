@@ -30,7 +30,7 @@ public class Curso {
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 	
 	@ManyToMany
-	@JoinTable(name = "curso_disciplina",
+	@JoinTable(name = "disciplina_curso",
 			joinColumns = @JoinColumn(name = "curso_id"),
 			inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
 	private List<Disciplina> disciplinas_curso = new ArrayList<Disciplina>();
