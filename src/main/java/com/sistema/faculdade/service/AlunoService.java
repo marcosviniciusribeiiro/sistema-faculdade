@@ -10,8 +10,6 @@ import com.sistema.faculdade.model.Aluno;
 import com.sistema.faculdade.model.Curso;
 import com.sistema.faculdade.repository.AlunoRepository;
 
-import jakarta.transaction.Transactional;
-
 @Service
 public class AlunoService {
 	private final AlunoRepository alunoRepository;
@@ -22,7 +20,6 @@ public class AlunoService {
 		this.cursoService = cursoService;
 	}
 	
-	@Transactional
 	public void salvarAluno(AlunoDTO dto) {
 		Aluno aluno = AlunoMapper.toEntity(dto);
 		
@@ -37,9 +34,9 @@ public class AlunoService {
 	}
 	
 	public AlunoDTO buscarPorId(Long id) {
-		Aluno a = alunoRepository.findById(id)
+		Aluno aluno = alunoRepository.findById(id)
 								 .orElseThrow(() -> new IllegalArgumentException("Id inválido: " + id));
-		return AlunoMapper.toDTO(a);
+		return AlunoMapper.toDTO(aluno);
 	}
 	
 	public void excluirAluno(Long id) {
