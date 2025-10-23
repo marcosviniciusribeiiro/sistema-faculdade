@@ -1,4 +1,4 @@
-package com.sistema.faculdade.service;
+  package com.sistema.faculdade.service;
 
 import java.util.List;
 
@@ -33,9 +33,9 @@ public class CursoService {
 	}
 	
 	public CursoDTO buscarPorId(Long id) {
-		Curso c = cursoRepository.findById(id)
+		Curso curso = cursoRepository.findById(id)
 								 .orElseThrow(() -> new IllegalArgumentException("Id inválido: " + id));
-		return CursoMapper.toDTO(c);
+		return CursoMapper.toDTO(curso);
 	}
 	
 	public Curso buscarEntidadePorId(Long id) {
