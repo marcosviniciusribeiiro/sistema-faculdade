@@ -18,7 +18,9 @@ public class DisciplinaService {
 	}
 	
 	public void salvarDisciplina(DisciplinaDTO dto) {
-		disciplinaRepository.save(DisciplinaMapper.toEntity(dto));
+		Disciplina disciplina = DisciplinaMapper.toEntity(dto);
+		
+		disciplinaRepository.save(disciplina);
 	}
 	
 	public List<DisciplinaDTO> listarDisciplinas(){
