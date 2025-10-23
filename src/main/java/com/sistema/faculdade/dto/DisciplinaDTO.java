@@ -2,6 +2,7 @@ package com.sistema.faculdade.dto;
 
 import java.util.List;
 
+import com.sistema.faculdade.model.Curso;
 import com.sistema.faculdade.model.Professor;
 
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +14,8 @@ public class DisciplinaDTO {
 	private String nome;
 	
 	private List<Professor> professores;
+	
+	private List<Curso> cursos;
 
 	public Long getId() {
 		return id;
@@ -36,5 +39,13 @@ public class DisciplinaDTO {
 
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
+	}
+
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 }
