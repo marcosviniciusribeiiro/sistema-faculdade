@@ -18,7 +18,9 @@ public class EnderecoService {
 	}
 	
 	public void salvarEndereco(EnderecoDTO dto) {
-		enderecoRepository.save(EnderecoMapper.toEntity(dto));
+		Endereco endereco = EnderecoMapper.toEntity(dto);
+
+		enderecoRepository.save(endereco);
 	}
 	
 	public List<EnderecoDTO> listarEnderecos(){
