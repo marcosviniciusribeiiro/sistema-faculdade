@@ -25,7 +25,7 @@ public class Professor {
 	private String nome;
 	
 	@ManyToMany
-	@JoinTable(name = "professor_disciplina",
+	@JoinTable(name = "disciplina_professor",
 			joinColumns = @JoinColumn(name = "professor_id"),
 			inverseJoinColumns = @JoinColumn(name = "disciplina_id"))
 	private List<Disciplina> disciplinas_professor = new ArrayList<Disciplina>();
